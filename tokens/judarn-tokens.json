@@ -1,0 +1,51 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "space": {
+    "half": { "$value": "4px", "$type": "dimension" },
+    "1": { "$value": "8px", "$type": "dimension" },
+    "2": { "$value": "16px", "$type": "dimension" },
+    "3": { "$value": "24px", "$type": "dimension" },
+    "4": { "$value": "32px", "$type": "dimension" },
+    "touchApple": { "$value": "44px", "$type": "dimension" },
+    "touchAndroid": { "$value": "48px", "$type": "dimension" },
+    "6": { "$value": "48px", "$type": "dimension" },
+    "8": { "$value": "64px", "$type": "dimension" },
+    "12": { "$value": "96px", "$type": "dimension" },
+    "16": { "$value": "128px", "$type": "dimension" }
+  },
+  "border": {
+    "rule": { "$value": "1px", "$type": "dimension" },
+    "ruleBold": { "$value": "2px", "$type": "dimension" },
+    "ruleHeavy": { "$value": "4px", "$type": "dimension" }
+  },
+  "color": {
+    "substrate": {
+      "light": { "$value": "oklch(0.962 0.006 92)", "$type": "color" },
+      "dark": { "$value": "oklch(0.165 0.002 92)", "$type": "color" }
+    },
+    "surfaceElevated": {
+      "light": { "$value": "oklch(1.000 0.000 0)", "$type": "color" },
+      "dark": { "$value": "oklch(0.210 0.003 92)", "$type": "color" }
+    },
+    "surfaceRecessed": {
+      "light": { "$value": "oklch(0.935 0.008 92)", "$type": "color" },
+      "dark": { "$value": "oklch(0.120 0.002 92)", "$type": "color" }
+    },
+    "ink100": {
+      "light": { "$value": "oklch(0.080 0.000 0)", "$type": "color" },
+      "dark": { "$value": "oklch(0.980 0.000 0)", "$type": "color" }
+    },
+    "ink60": {
+      "light": { "$value": "oklch(0.520 0.005 92)", "$type": "color" },
+      "dark": { "$value": "oklch(0.720 0.005 92)", "$type": "color" }
+    },
+    "ink30": {
+      "light": { "$value": "oklch(0.780 0.005 92)", "$type": "color" },
+      "dark": { "$value": "oklch(0.350 0.004 92)", "$type": "color" }
+    },
+    "signalError": {
+      "light": { "$value": "oklch(0.550 0.220 25)", "$type": "color" },
+      "dark": { "$value": "oklch(0.680 0.200 25)", "$type": "color" }
+    }
+  }
+}

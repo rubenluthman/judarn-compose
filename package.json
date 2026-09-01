@@ -1,0 +1,10 @@
+{
+  "name": "@judarn/compose",
+  "version": "1.0.0",
+  "description": "Judarn Swiss-modernist design foundation for Android Jetpack Compose",
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.js",
+    "test": "node scripts/build-tokens.js"
+  },
+  "license": "UNLICENSED"
+}
