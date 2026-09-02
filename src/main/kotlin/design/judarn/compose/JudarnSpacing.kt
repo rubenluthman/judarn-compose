@@ -38,4 +38,10 @@ public object JudarnSpacing {
     public val rule: Dp = 1.dp
     public val ruleBold: Dp = 2.dp
     public val ruleHeavy: Dp = 4.dp
+
+    // Typographic reading measures
+    /** 640dp maximum column measure for continuous body reading (~65ch) */
+    public val measureBody: Dp = 640.dp
+    /** 440dp compact column measure for cards and sidebars (~45ch) */
+    public val measureCompact: Dp = 440.dp
 }

@@ -17,6 +17,8 @@ console.log('=== Judarn Universal Cross-Platform Token Parity Verification ===\n
 // 1. Validate canonical W3C schema
 console.log('1. Canonical W3C Schema:');
 console.log(`   - Spatial tokens: ${Object.keys(tokens.space).length}`);
+console.log(`   - Reading measures: ${Object.keys(tokens.measure).length}`);
+console.log(`   - Font slots: ${Object.keys(tokens.font).length}`);
 console.log(`   - Border tokens: ${Object.keys(tokens.border).length}`);
 console.log(`   - Color registers: ${Object.keys(tokens.color).length} (Dual-Tier OKLCh)`);
 
@@ -54,7 +56,14 @@ if (fs.existsSync(swiftColorsFile) && fs.existsSync(swiftSpacingFile)) {
       process.exit(1);
     }
   }
-  console.log('   ✓ JudarnColors & JudarnSpacing verified in Swift.\n');
+  const measures = ['measureBody', 'measureCompact'];
+  for (const m of measures) {
+    if (!swiftSpacing.includes(`public static let ${m}`)) {
+      console.error(`   ✗ Swift JudarnSpacing missing measure token: ${m}`);
+      process.exit(1);
+    }
+  }
+  console.log('   ✓ JudarnColors, JudarnSpacing & Measures verified in Swift.\n');
 } else {
   console.warn('   ! Swift target files not found.\n');
 }
@@ -70,7 +79,14 @@ if (fs.existsSync(webCssFile)) {
       process.exit(1);
     }
   }
-  console.log('   ✓ CSS Custom Properties & prefers-color-scheme verified in Web.\n');
+  const requiredTokens = ['--jd-measure-body', '--jd-measure-compact', '--jd-font-display', '--jd-font-body', '--jd-font-data', '--jd-font-mono', '.t-data', '.t-mono'];
+  for (const t of requiredTokens) {
+    if (!webCss.includes(t)) {
+      console.error(`   ✗ Web CSS missing token/class: ${t}`);
+      process.exit(1);
+    }
+  }
+  console.log('   ✓ CSS Custom Properties, Font Slots, Measures & prefers-color-scheme verified in Web.\n');
 } else {
   console.warn('   ! Web CSS target file not found.\n');
 }
@@ -93,7 +109,14 @@ if (fs.existsSync(composeColorsFile) && fs.existsSync(composeSpacingFile)) {
       process.exit(1);
     }
   }
-  console.log('   ✓ JudarnColors & JudarnSpacing verified in Compose.\n');
+  const composeMeasures = ['measureBody', 'measureCompact'];
+  for (const m of composeMeasures) {
+    if (!composeSpacing.includes(`val ${m}: Dp`)) {
+      console.error(`   ✗ Compose JudarnSpacing missing measure token: ${m}`);
+      process.exit(1);
+    }
+  }
+  console.log('   ✓ JudarnColors, JudarnSpacing & Measures verified in Compose.\n');
 } else {
   console.warn('   ! Compose target files not found.\n');
 }
