@@ -29,7 +29,13 @@ private object NoIndication : IndicationNodeFactory {
 @Composable
 public fun JudarnTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    colors: JudarnColors = if (darkTheme) JudarnColors.dark() else JudarnColors.light(),
+    highContrast: Boolean = false,
+    colors: JudarnColors = when {
+        darkTheme && highContrast -> JudarnColors.darkHighContrast()
+        darkTheme -> JudarnColors.dark()
+        highContrast -> JudarnColors.lightHighContrast()
+        else -> JudarnColors.light()
+    },
     typography: JudarnTypography = JudarnTypography(),
     content: @Composable () -> Unit
 ) {

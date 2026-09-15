@@ -43,7 +43,7 @@ public fun JudarnTextField(
         else -> colors.ink100
     }
 
-    val borderWidth = if (isFocused || isError) JudarnSpacing.ruleBold else JudarnSpacing.rule
+    val borderWidth = if (colors.isHighContrast || isFocused || isError) JudarnSpacing.ruleBold else JudarnSpacing.rule
 
     Column(modifier = modifier, verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(JudarnSpacing.gapTight)) {
         if (label != null) {

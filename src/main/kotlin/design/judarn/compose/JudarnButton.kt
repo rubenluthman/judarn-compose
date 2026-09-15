@@ -172,7 +172,7 @@ private fun resolveColors(
             if (isHovered) {
                 Triple(colors.surfaceElevated, colors.accent, colors.accent)
             } else {
-                Triple(colors.accent, Color.White, colors.accent)
+                Triple(colors.accent, colors.accent.contrastingInk, colors.accent)
             }
         }
     }

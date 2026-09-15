@@ -33,7 +33,7 @@ public fun JudarnBadge(
     val (bgColor, fgColor, borderColor) = when (variant) {
         JudarnBadgeVariant.Outline -> Triple(colors.surfaceElevated, colors.ink100, colors.ink100)
         JudarnBadgeVariant.Solid -> Triple(colors.ink100, colors.surfaceElevated, colors.ink100)
-        JudarnBadgeVariant.Accent -> Triple(colors.accent, Color.White, colors.accent)
+        JudarnBadgeVariant.Accent -> Triple(colors.accent, colors.accent.contrastingInk, colors.accent)
         JudarnBadgeVariant.AccentOutline -> Triple(colors.surfaceElevated, colors.accent, colors.accent)
     }
 
