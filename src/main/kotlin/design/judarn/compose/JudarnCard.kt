@@ -18,7 +18,7 @@ import androidx.compose.ui.draw.clip
 
 /**
  * Modernist card component with Material 3 corner radii,
- * solid SurfaceElevated fill, and host-symbiotic platform alignment.
+ * solid SurfaceElevated fill, and platform alignment.
  */
 @Composable
 public fun JudarnCard(

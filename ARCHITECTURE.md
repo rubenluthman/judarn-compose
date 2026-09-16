@@ -10,7 +10,7 @@
 - **WCAG Contrast Verifier (`JudarnContrastVerifier.kt`)**: Trait-aware mathematical relative luminance and contrast ratio verifier ensuring strict AAA/AA compliance across surface pairings.
 
 ## Invariants & Design Contracts
-1. **Host-Symbiotic Platform Invariants**: Judarn binds to the host operating system. Judarn sets color, spatial rhythm, and typography. The host platform shapes geometry, depth, and touch mechanics. Never override host platform physics, hardware curves, or native interaction states.
+1. **Platform Invariants**: Judarn binds to the host operating system. Judarn sets color, spatial rhythm, and typography. The host platform shapes geometry, depth, and touch mechanics. Never override host platform physics, hardware curves, or native interaction states.
 2. **Shape & Curvature**: Surfaces delegate corner radii to Material Design 3 shape tokens via `JudarnRadius` (`card: 16.dp`, `control: 10.dp`, `badge: 9999.dp`).
 3. **Surface Hierarchy**: Distinguish surfaces by background fill contrast (`surfaceElevated` on `substrate`). Never stroke card perimeters with hairline outlines. Hairlines (`rule = 1.dp`) belong only inside tabular matrices and data grids.
 4. **Cross-Platform Parity**: Tokens must match Swift (`judarn`) and Web (`judarn-web`) equivalents verified via automated parity tests.
