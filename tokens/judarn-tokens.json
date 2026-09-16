@@ -22,6 +22,12 @@
     "ruleBold": { "$value": "2px", "$type": "dimension" },
     "ruleHeavy": { "$value": "4px", "$type": "dimension" }
   },
+  "radius": {
+    "card": { "$value": "16px", "$type": "dimension" },
+    "control": { "$value": "10px", "$type": "dimension" },
+    "badge": { "$value": "9999px", "$type": "dimension" },
+    "subtle": { "$value": "6px", "$type": "dimension" }
+  },
   "font": {
     "sans": { "$value": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif", "$type": "fontFamily" },
     "display": { "$value": "{font.sans}", "$type": "fontFamily" },

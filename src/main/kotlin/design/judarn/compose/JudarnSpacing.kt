@@ -45,3 +45,18 @@ public object JudarnSpacing {
     /** 440dp compact column measure for cards and sidebars (~45ch) */
     public val measureCompact: Dp = 440.dp
 }
+
+/**
+ * Host platform corner radius tokens for Android Compose environments.
+ */
+public object JudarnRadius {
+    /** 6dp subtle rounding for micro elements */
+    public val subtle: Dp = 6.dp
+    /** 10dp corner radius for functional interactive controls, text fields, and buttons */
+    public val control: Dp = 10.dp
+    /** 16dp corner radius for content cards, grouping tiles, and sheets */
+    public val card: Dp = 16.dp
+    /** 9999dp pill/capsule shape for badges, tags, and status chips */
+    public val badge: Dp = 9999.dp
+}
+

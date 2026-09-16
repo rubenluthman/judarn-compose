@@ -13,10 +13,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.semantics.Role
 
 public enum class JudarnButtonVariant {
@@ -73,22 +73,23 @@ public fun JudarnButton(
             .sizeIn(minWidth = JudarnSpacing.spaceTouch, minHeight = JudarnSpacing.spaceTouch)
             .clickable(
                 interactionSource = interactionSource,
-                indication = null, // Suppress M3 circular ripple
+                indication = androidx.compose.material3.ripple(),
                 enabled = enabled,
                 role = Role.Button,
                 onClick = onClick
             ),
         contentAlignment = Alignment.Center
     ) {
-        // Inner visual box: strict 0-radius, 1dp hairline border
+        val buttonShape = RoundedCornerShape(JudarnRadius.control)
+        // Inner visual box: Material 3 squircle shape
         Box(
             modifier = Modifier
                 .border(
                     width = if (variant == JudarnButtonVariant.Ghost) 0.dp else JudarnSpacing.rule,
                     color = borderColor,
-                    shape = RectangleShape
+                    shape = buttonShape
                 )
-                .background(bgColor, shape = RectangleShape)
+                .background(bgColor, shape = buttonShape)
                 .padding(horizontal = hPad, vertical = vPad),
             contentAlignment = Alignment.Center
         ) {

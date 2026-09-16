@@ -12,12 +12,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.draw.clip
 
 /**
- * Modernist card component with 1dp hairline border, 0-radius corners,
- * and solid SurfaceElevated fill.
+ * Modernist card component with Material 3 corner radii,
+ * solid SurfaceElevated fill, and host-symbiotic platform alignment.
  */
 @Composable
 public fun JudarnCard(
@@ -25,6 +26,7 @@ public fun JudarnCard(
     eyebrow: String? = null,
     title: String? = null,
     isFlat: Boolean = false,
+    useGlassBackground: Boolean = false,
     media: @Composable (() -> Unit)? = null,
     actions: @Composable (() -> Unit)? = null,
     content: @Composable () -> Unit
@@ -32,25 +34,25 @@ public fun JudarnCard(
     val colors = JudarnTheme.colors
     val typography = JudarnTheme.typography
 
-    val borderModifier = if (isFlat) Modifier else Modifier.border(JudarnSpacing.rule, colors.ink100, RectangleShape)
-    val bgModifier = if (isFlat) Modifier else Modifier.background(colors.surfaceElevated, RectangleShape)
+    val cardShape = if (isFlat) RoundedCornerShape(0) else RoundedCornerShape(JudarnRadius.card)
+    val bgModifier = if (isFlat) Modifier else Modifier.background(colors.surfaceElevated, cardShape).clip(cardShape)
     val padModifier = if (isFlat) Modifier else Modifier.padding(JudarnSpacing.space3)
 
     Column(
         modifier = modifier
-            .then(borderModifier)
             .then(bgModifier)
             .then(padModifier),
         verticalArrangement = Arrangement.spacedBy(JudarnSpacing.gapNormal)
     ) {
-        // Media Frame (3:2 Aspect Ratio, 2dp border)
+        // Media Frame (3:2 Aspect Ratio)
         if (media != null) {
+            val mediaShape = RoundedCornerShape(JudarnRadius.control)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(3f / 2f)
-                    .background(colors.surfaceElevated, RectangleShape)
-                    .border(JudarnSpacing.ruleBold, colors.ink100, RectangleShape),
+                    .background(colors.surfaceElevated, mediaShape)
+                    .clip(mediaShape),
                 contentAlignment = Alignment.Center
             ) {
                 media()
@@ -82,30 +84,4 @@ public fun JudarnCard(
             }
         }
     }
-}
-
-@Deprecated(
-    message = "Use solid surfaceElevated substrates. Translucency is strictly reserved for Tier 2 chrome.",
-    replaceWith = ReplaceWith("JudarnCard(modifier, eyebrow, title, isFlat, media, actions, content)")
-)
-@Composable
-public fun JudarnCard(
-    useGlassBackground: Boolean,
-    modifier: Modifier = Modifier,
-    eyebrow: String? = null,
-    title: String? = null,
-    isFlat: Boolean = false,
-    media: @Composable (() -> Unit)? = null,
-    actions: @Composable (() -> Unit)? = null,
-    content: @Composable () -> Unit
-) {
-    JudarnCard(
-        modifier = modifier,
-        eyebrow = eyebrow,
-        title = title,
-        isFlat = isFlat,
-        media = media,
-        actions = actions,
-        content = content
-    )
 }
